@@ -8,7 +8,7 @@
 # Requirement
 
 * Homebrew 3.6.2
-* nodebrew 8.9.4
+* nodebrew 16.1.0(expo-CLI対応のため)
 * npm 8.19.1
 * firebase@9.10.0
 
