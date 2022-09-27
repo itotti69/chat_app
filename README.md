@@ -35,9 +35,8 @@ cd src
 expo start
 プレイストアからExpo Goをインストール()
 QRコードを読み取る
-# Author
 
-作成情報を列挙する
+# Author
 
 * 柴田 惇
 * 愛知工業大学
