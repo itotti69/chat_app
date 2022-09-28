@@ -19,11 +19,13 @@ import { getMessageDocRef, getUserId } from '../lib/firebase';
 import { Message } from '../types/message';
 import { MessageItem } from '../components/MessageItem';
 
+//exportは違うファイルから呼び出せるように記述
 export const ChatScreen = () => {
     const [text, setText] = useState<string>('');
     const [messages, setMessages] = useState<Message[]>([]);
     const [userId, setUserId] = useState<string | undefined>();
 
+    //asyncは非同期処理の文.ただ処理が終わるまで待つ
     const sendMessage = async (value: string, uid: string | undefined) => {
         if (value != '') {
             const docRef = await getMessageDocRef();
