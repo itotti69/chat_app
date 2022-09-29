@@ -18,6 +18,9 @@ import firebase from 'firebase/compat/app';
 import { getMessageDocRef, getUserId } from '../lib/firebase';
 import { Message } from '../types/message';
 import { MessageItem } from '../components/MessageItem';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
 
 //exportは違うファイルから呼び出せるように記述
 export const ChatScreen = () => {
@@ -41,10 +44,14 @@ export const ChatScreen = () => {
         }
     };
 
+    const firebaseConfig = {
+        
+    };
+
     const getMessages = async () => {
         const messages = [] as Message[];
-        await firebase
-            .firestore()
+        const db = firebase.firestore();
+        await db
             .collection('messages')
             .orderBy('createdAt')
             .onSnapshot((snapshot) => {
@@ -55,11 +62,12 @@ export const ChatScreen = () => {
                 });
                 setMessages(messages);
             });
+        
     };
 
     const signin = async () => {
         const uid = await getUserId();
-        setUserId(uid);
+        setUserId('fVKSfUj7MMcuHQr302oBaFrgYgG2');
     };
 
     useEffect(() => {
