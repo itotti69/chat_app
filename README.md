@@ -23,6 +23,9 @@ nodebrewのインストール brew install nodebrew
 node.jsのインストール nodebrew install-binary stable
 expo-cliをインストール npm install -g expo-cli
 npm install firebase
+npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+npm install @react-navigation/native-stack
 ```
 
 # Usage

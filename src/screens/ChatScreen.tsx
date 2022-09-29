@@ -18,12 +18,17 @@ import firebase from 'firebase/compat/app';
 import { getMessageDocRef, getUserId } from '../lib/firebase';
 import { Message } from '../types/message';
 import { MessageItem } from '../components/MessageItem';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
 
+//exportは違うファイルから呼び出せるように記述
 export const ChatScreen = () => {
     const [text, setText] = useState<string>('');
     const [messages, setMessages] = useState<Message[]>([]);
     const [userId, setUserId] = useState<string | undefined>();
 
+    //asyncは非同期処理の文.ただ処理が終わるまで待つ
     const sendMessage = async (value: string, uid: string | undefined) => {
         if (value != '') {
             const docRef = await getMessageDocRef();
@@ -39,10 +44,14 @@ export const ChatScreen = () => {
         }
     };
 
+    const firebaseConfig = {
+        
+    };
+
     const getMessages = async () => {
         const messages = [] as Message[];
-        await firebase
-            .firestore()
+        const db = firebase.firestore();
+        await db
             .collection('messages')
             .orderBy('createdAt')
             .onSnapshot((snapshot) => {
@@ -53,11 +62,12 @@ export const ChatScreen = () => {
                 });
                 setMessages(messages);
             });
+        
     };
 
     const signin = async () => {
         const uid = await getUserId();
-        setUserId(uid);
+        setUserId('fVKSfUj7MMcuHQr302oBaFrgYgG2');
     };
 
     useEffect(() => {
