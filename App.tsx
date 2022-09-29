@@ -31,7 +31,7 @@ function DetailsScreen() {
     </View>
   );
 }
-
+//ログイン画面
 function login() {
   return <LoginScreen />;
 }
