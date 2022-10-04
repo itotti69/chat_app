@@ -5,3 +5,18 @@ export type Message = {
     createdAt: firebase.firestore.Timestamp;
     userId: string;
 };
+
+export type ChatRoomUser = {
+    chat_room_id: number;
+    id: number;
+    user_id: string;
+};
+export type YourUser = {
+    chat_room_id: number;
+    id: number;
+    user_id: string;
+};
+export type ChatRoom = {
+    id: number;
+    room_name: string;
+};
